@@ -1,0 +1,317 @@
+[
+  {
+    "model": "SR3",
+    "paper": {"title": "Image super-resolution via iterative refinement", "url": "https://ieeexplore.ieee.org/document/9887996x"},
+    "first_author": "Chitwan Saharia",
+    "venue": {"text": "TPAMI2022", "year": "2022"},
+    "repository": "https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement"
+  },
+  {
+    "model": "SRDiff",
+    "paper": {"title": "SRDiff: Single Image Super-Resolution with Diffusion Probabilistic Models", "url": "https://arxiv.org/abs/2104.14951"},
+    "first_author": "Haoying Li",
+    "venue": {"text": "Neurocomputing 2022", "year": "2021-04-30"},
+    "repository": "https://github.com/LeiaLi/SRDiff"
+  },
+  {
+    "model": "SDE-SR",
+    "paper": {"title": "Face super-resolution using stochastic differential equations", "url": "https://arxiv.org/abs/2209.12064"},
+    "first_author": "Marcelo dos Santos",
+    "venue": {"text": "SIBGRAPI 2022", "year": "2022-09-24"},
+    "repository": "https://github.com/marcelowds/sr-sde"
+  },
+  {
+    "model": "IDM",
+    "paper": {"title": "Implicit diffusion models for continuous super-resolution", "url": "https://openaccess.thecvf.com/content/CVPR2023/papers/Gao_Implicit_Diffusion_Models_for_Continuous_Super-Resolution_CVPR_2023_paper.pdf"},
+    "first_author": "Sicheng Gao",
+    "venue": {"text": "CVPR2023", "year": "2023"},
+    "repository": "https://github.com/Ree1s/IDM"
+  },
+  {
+    "model": "PromptSR",
+    "paper": {"title": "Image Super-Resolution with Text Prompt Diffusion", "url": "https://arxiv.org/abs/2311.14282"},
+    "first_author": "Zheng Chen",
+    "venue": {"text": "Preprint (2023)", "year": "2023-11-24"},
+    "repository": "https://github.com/zhengchen1999/PromptSR"
+  },
+  {
+    "model": "DiffIR",
+    "paper": {"title": "DiffIR: Efficient diffusion model for image restoration", "url": "https://arxiv.org/abs/2303.09472"},
+    "first_author": "Bin Xia",
+    "venue": {"text": "ICCV 2023", "year": "2023-03-16"},
+    "repository": "https://github.com/Zj-BinXia/DiffIR"
+  },
+  {
+    "model": "CDM",
+    "paper": {"title": "Cascaded Diffusion Models for High Fidelity Image Generation", "url": "https://arxiv.org/abs/2106.15282"},
+    "first_author": "Jonathan Ho",
+    "venue": {"text": "J.Mach.Learn.Res 2022", "year": "2021-05-30"},
+    "repository": null
+  },
+  {
+    "model": "StableSR",
+    "paper": {"title": "Exploiting diffusion prior for real-world image super-resolution", "url": "https://arxiv.org/abs/2305.07015"},
+    "first_author": "Jianyi Wang",
+    "venue": {"text": "Preprint (2023)", "year": "2023-05-11"},
+    "repository": "https://github.com/IceClear/StableSR"
+  },
+  {
+    "model": "ResShift",
+    "paper": {"title": "ResShift: Efficient Diffusion Model for Image Super-resolution by Residual Shifting", "url": "https://arxiv.org/pdf/2307.12348.pdf"},
+    "first_author": "Zongsheng Yue",
+    "venue": {"text": "NeurIPS 2023", "year": "2023"},
+    "repository": "https://github.com/zsyOAOA/ResShift"
+  },
+  {
+    "model": "DFOSD",
+    "paper": {"title": "Distillation-Free One-Step Diffusion for Real-World Image Super-Resolution", "url": "https://arxiv.org/pdf/2410.04224"},
+    "first_author": "Jianze Li",
+    "venue": {"text": "Preprint (2024)", "year": "2024-10-05"},
+    "repository": "https://github.com/JianzeLi-114/DFOSD"
+  },
+  {
+    "model": "ECDP",
+    "paper": {"title": "Efficient Conditional Diffusion Model with Probability Flow Sampling for Image Super-resolution", "url": "https://arxiv.org/abs/2404.10688"},
+    "first_author": "Yutao Yuan",
+    "venue": {"text": "AAAI 2024", "year": "2024-04-16"},
+    "repository": "https://github.com/Yuan-Yutao/ECDP"
+  },
+  {
+    "model": "ClearSR",
+    "paper": {"title": "ClearSR: Latent Low-Resolution Image Embeddings Help Diffusion-Based Real-World Super Resolution Models See Clearer", "url": "https://arxiv.org/abs/2410.14279"},
+    "first_author": "Yuhao Wan",
+    "venue": {"text": "Preprint (2024)", "year": "2024-10-18"},
+    "repository": null
+  },
+  {
+    "model": "SinSR",
+    "paper": {"title": "SinSR: Diffusion-Based Image Super-Resolution in a Single Step", "url": "https://arxiv.org/abs/2311.14760"},
+    "first_author": "Yufei Wang",
+    "venue": {"text": "CVPR 2024", "year": "2023-11-23"},
+    "repository": "https://github.com/wyf0912/SinSR"
+  },
+  {
+    "model": "TextDiff",
+    "paper": {"title": "TextDiff: Mask-Guided Residual Diffusion Models for Scene Text Image Super-Resolution", "url": "https://arxiv.org/abs/2308.06743"},
+    "first_author": "Baolin Liu",
+    "venue": {"text": "Preprint (2023)", "year": "2023-08-13"},
+    "repository": "https://github.com/Lenubolim/TextDiff"
+  },
+  {
+    "model": "PASD",
+    "paper": {"title": "Pixel-Aware Stable Diffusion for Realistic Image Super-resolution and Personalized Stylization", "url": "https://arxiv.org/abs/2308.14469"},
+    "first_author": "Tao Yang",
+    "venue": {"text": "Preprint (2023)", "year": "2023-08-28"},
+    "repository": "https://github.com/yangxy/pasd"
+  },
+  {
+    "model": "CCSR",
+    "paper": {"title": "Improving the Stability of Diffusion Models for Content Consistent Super-Resolution", "url": "https://arxiv.org/abs/2401.00877"},
+    "first_author": "Lingchen Sun",
+    "venue": {"text": "Preprint (2023)", "year": "2023-12-30"},
+    "repository": "https://github.com/csslc/CCSR"
+  },
+  {
+    "model": "EDiffSR",
+    "paper": {"title": "EDiffSR: An Efficient Diffusion Probabilistic Model for Remote Sensing Image Super-Resolution", "url": "https://arxiv.org/abs/2310.19288"},
+    "first_author": "Yi Xiao",
+    "venue": {"text": "IEEE TGRS", "year": "2023-10-30"},
+    "repository": "https://github.com/XY-boy/EDiffSR"
+  },
+  {
+    "model": "SeeSR",
+    "paper": {"title": "SeeSR: Towards Semantics-Aware Real-World Image Super-Resolution", "url": "https://arxiv.org/pdf/2311.16518"},
+    "first_author": "Rongyuan Wu",
+    "venue": {"text": "Preprint (2023)", "year": "2023-11-27"},
+    "repository": "https://github.com/cswry/SeeSR"
+  },
+  {
+    "model": "CoSeR",
+    "paper": {"title": "CoSeR: Bridging Image and Language for Cognitive Super-Resolution", "url": "https://arxiv.org/abs/2311.16512"},
+    "first_author": "Haoze Sun",
+    "venue": {"text": "CVPR 2024", "year": "2023-11-27"},
+    "repository": "https://github.com/VINHYU/CoSeR"
+  },
+  {
+    "model": "MegaSR",
+    "paper": {"title": "MegaSR: Mining Customized Semantics and Expressive Guidance for Image Super-Resolution", "url": "https://arxiv.org/abs/2503.08096"},
+    "first_author": "Xinrui Li",
+    "venue": {"text": "Preprint (2025)", "year": "2025-03-11"},
+    "repository": null
+  },
+  {
+    "model": "FaithDiff",
+    "paper": {"title": "FaithDiff: Unleashing Diffusion Priors for Faithful Image Super-resolution", "url": "https://arxiv.org/abs/2411.18824"},
+    "first_author": "Junyang Chen",
+    "venue": {"text": "CVPR 2025", "year": "2024-11-27"},
+    "repository": "https://github.com/JyChen9811/FaithDiff"
+  },
+  {
+    "model": "HoliSDiP",
+    "paper": {"title": "HoliSDiP: Image Super-Resolution via Holistic Semantics and Diffusion Prior", "url": "https://arxiv.org/abs/2411.18662"},
+    "first_author": "Li-Yuan Tsao",
+    "venue": {"text": "Preprint (2025)", "year": "2024-11-27"},
+    "repository": "https://github.com/liyuantsao/HoliSDiP"
+  },
+  {
+    "model": "BI-DiffSR",
+    "paper": {"title": "Binarized Diffusion Model for Image Super-Resolution", "url": "https://arxiv.org/abs/2406.05723"},
+    "first_author": "Zheng Chen",
+    "venue": {"text": "NeurIPS 2024", "year": "2024-06-09"},
+    "repository": "https://github.com/zhengchen1999/BI-DiffSR"
+  },
+  {
+    "model": "DoSSR",
+    "paper": {"title": "Taming Diffusion Prior for Image Super-Resolution with Domain Shift SDEs", "url": "https://arxiv.org/abs/2409.17778"},
+    "first_author": "Qinpeng Cui",
+    "venue": {"text": "NeurIPS 2024", "year": "2024-09-26"},
+    "repository": "https://github.com/QinpengCui/DoSSR"
+  },
+  {
+    "model": "DaLPSR",
+    "paper": {"title": "DaLPSR: Leverage Degradation-Aligned Language Prompt for Real-World Image Super-Resolution", "url": "https://arxiv.org/abs/2406.16477"},
+    "first_author": "Aiwen Jiang",
+    "venue": {"text": "Preprint (2024)", "year": "2024-06-24"},
+    "repository": null
+  },
+  {
+    "model": "FDDiff",
+    "paper": {"title": "Frequency-Domain Refinement with Multiscale Diffusion for Super Resolution", "url": "https://arxiv.org/abs/2405.10014"},
+    "first_author": "Xingjian Wang",
+    "venue": {"text": "Preprint (2024)", "year": "2024-05-16"},
+    "repository": null
+  },
+  {
+    "model": "PartDiff",
+    "paper": {"title": "PartDiff: Image Super-resolution with Partial Diffusion Models", "url": "https://arxiv.org/abs/2307.11926"},
+    "first_author": "Kai Zhao",
+    "venue": {"text": "Preprint (2023)", "year": "2023-07-21"},
+    "repository": null
+  },
+  {
+    "model": "DeeDSR",
+    "paper": {"title": "DeeDSR: Towards Real-World Image Super-Resolution via Degradation-Aware Stable Diffusion", "url": "https://arxiv.org/abs/2404.00661"},
+    "first_author": "Chunyang Bi",
+    "venue": {"text": "Preprint (2024)", "year": "2024-03-31"},
+    "repository": null
+  },
+  {
+    "model": "TDDSR",
+    "paper": {"title": "TDDSR: SINGLE-STEP DIFFUSION WITH TWO DISCRIMINATORS FOR SUPER RESOLUTION", "url": "https://arxiv.org/abs/2410.07663"},
+    "first_author": "Sohwi Kim",
+    "venue": {"text": "Preprint (2024)", "year": "2024-10-10"},
+    "repository": null
+  },
+  {
+    "model": "DiT-SR",
+    "paper": {"title": "Effective Diffusion Transformer Architecture for Image Super-Resolution", "url": "https://arxiv.org/html/2409.19589"},
+    "first_author": "Kun Cheng",
+    "venue": {"text": "Preprint (2024)", "year": "2024-09-29"},
+    "repository": "https://github.com/kunncheng/dit-sr"
+  },
+  {
+    "model": "SR3+",
+    "paper": {"title": "Denoising diffusion probabilistic models for robust image super-resolution in the wild", "url": "https://arxiv.org/abs/2302.07864"},
+    "first_author": "Hshmat Sahak",
+    "venue": {"text": "Preprint (2023)", "year": "2023-02-15"},
+    "repository": null
+  },
+  {
+    "model": "DKP",
+    "paper": {"title": "A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution", "url": "https://arxiv.org/pdf/2404.15620v2"},
+    "first_author": "Zhixiong Yang",
+    "venue": {"text": "CVPR 2024", "year": "2024-04-24"},
+    "repository": "https://github.com/XYLGroup/DKP"
+  },
+  {
+    "model": "Diwa",
+    "paper": {"title": "Waving Goodbye to Low-Res: A Diffusion-Wavelet Approach for Image Super-Resolution", "url": "https://arxiv.org/abs/2304.01994"},
+    "first_author": "Brian Moser",
+    "venue": {"text": "Preprint (2023)", "year": "2023-04-04"},
+    "repository": "https://github.com/Brian-Moser/diwa"
+  },
+  {
+    "model": "YODA",
+    "paper": {"title": "YODA: You Only Diffuse Areas. An Area-Masked Diffusion Approach For Image Super-Resolution", "url": "https://arxiv.org/pdf/2308.07977v1.pdf"},
+    "first_author": "Brian B. Moser",
+    "venue": {"text": "Preprint (2023)", "year": "2023-08-15"},
+    "repository": null
+  },
+  {
+    "model": "CDPMSR",
+    "paper": {"title": "CDPMSR: Conditional Diffusion Probabilistic Models for Single Image Super-Resolution", "url": "https://arxiv.org/abs/2302.12831"},
+    "first_author": "Axi Niu",
+    "venue": {"text": "Preprint (2023)", "year": "2023-02-14"},
+    "repository": null
+  },
+  {
+    "model": "ACDPMSR",
+    "paper": {"title": "ACDMSR: Accelerated Conditional Diffusion Models for Single Image Super-Resolution", "url": "https://arxiv.org/abs/2307.00781"},
+    "first_author": "Axi Niu",
+    "venue": {"text": "Preprint (2023)", "year": "2023-07-03"},
+    "repository": null
+  },
+  {
+    "model": "ResDiff",
+    "paper": {"title": "ResDiff: Combining cnn and diffusion model for image superresolution", "url": "https://arxiv.org/abs/2303.08714"},
+    "first_author": "Shuyao Shang",
+    "venue": {"text": "Preprint (2023)", "year": "2023-03-15"},
+    "repository": null
+  },
+  {
+    "model": "OSEDiff",
+    "paper": {"title": "One-Step Effective Diffusion Network for Real-World Image Super-Resolution", "url": "https://arxiv.org/abs/2406.08177"},
+    "first_author": "Rongyuan Wu",
+    "venue": {"text": "Preprint (2024)", "year": "2024-06-12"},
+    "repository": null
+  },
+  {
+    "model": "DiffTSR",
+    "paper": {"title": "Diffusion-based Blind Text Image Super-Resolution", "url": "https://arxiv.org/abs/2312.08886"},
+    "first_author": "Yuzhe Zhang",
+    "venue": {"text": "CVPR 2024", "year": "2023-12-13"},
+    "repository": null
+  },
+  {
+    "model": "SAM-DiffSR",
+    "paper": {"title": "SAM-DiffSR: Structure-Modulated Diffusion Model for Image Super-Resolution", "url": "https://arxiv.org/abs/2402.17133"},
+    "first_author": "Chengcheng Wang",
+    "venue": {"text": "Preprint (2024)", "year": "2024-02-27"},
+    "repository": "https://github.com/lose4578/SAM-DiffSR"
+  },
+  {
+    "model": "BlindDiff",
+    "paper": {"title": "BlindDiff: Empowering Degradation Modelling in Diffusion Models for Blind Image Super-Resolution", "url": "https://arxiv.org/abs/2403.10211"},
+    "first_author": "Feng Li",
+    "venue": {"text": "Preprint (2024)", "year": "2024-03-15"},
+    "repository": "https://github.com/lifengcs/BlindDiff"
+  },
+  {
+    "model": "XPSR",
+    "paper": {"title": "XPSR: Cross-modal Priors for Diffusion-based Image Super-Resolution", "url": "https://arxiv.org/abs/2403.05049"},
+    "first_author": "Yunpeng Qu",
+    "venue": {"text": "Preprint (2024)", "year": "2024-03-08"},
+    "repository": "https://github.com/qyp2000/XPSR"
+  },
+  {
+    "model": "--",
+    "paper": {"title": "Text-guided Explorable Image Super-resolution", "url": "https://arxiv.org/abs/2403.01124"},
+    "first_author": "Kanchana Vaishnavi Gandikota",
+    "venue": {"text": "Preprint (2024)", "year": "2024-03-02"},
+    "repository": null
+  },
+  {
+    "model": "--",
+    "paper": {"title": "Image Super-resolution Via Latent Diffusion: A Sampling-space Mixture Of Experts And Frequency-augmented Decoder Approach", "url": "https://arxiv.org/pdf/2310.12004v2.pdf"},
+    "first_author": "Feng Luo",
+    "venue": {"text": "Preprint (2023)", "year": "2023-10-18"},
+    "repository": "https://github.com/tencent-ailab/Frequency_Aug_VAE_MoESR"
+  },
+  {
+    "model": "--",
+    "paper": {"title": "Solving Diffusion ODEs with Optimal Boundary Conditions for Better Image Super-Resolution", "url": "https://arxiv.org/abs/2305.15357"},
+    "first_author": "Yiyang Ma",
+    "venue": {"text": "Preprint (2023)", "year": "2023-05-24"},
+    "repository": null
+  }
+]

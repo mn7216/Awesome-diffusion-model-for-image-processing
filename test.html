@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Diffusion Models for Image Super-Resolution</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.5;
+        color: #24292f;
+        background-color: #ffffff;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid #d0d7de;
+        padding-bottom: 0.3em;
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+
+      .sortable-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 2em;
+        border: 1px solid #d0d7de;
+      }
+
+      .sortable-table th,
+      .sortable-table td {
+        border: 1px solid #d0d7de;
+        padding: 8px 12px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .sortable-table thead {
+        background-color: #f6f8fa;
+        font-weight: bold;
+      }
+
+      .sortable-table tbody tr:nth-child(odd) {
+        background-color: #f6f8fa;
+      }
+
+      a {
+        color: #0969da;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .sortable-table th {
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .sortable-table th::after,
+      .sortable-table th::before {
+        content: "";
+        position: absolute;
+        right: 8px;
+        border: 5px solid transparent;
+        opacity: 0.3;
+      }
+
+      .sortable-table th::before {
+        bottom: 50%;
+        border-bottom-color: #24292f;
+      }
+
+      .sortable-table th::after {
+        top: 50%;
+        border-top-color: #24292f;
+      }
+
+      .sortable-table th.sort-asc::before {
+        opacity: 1;
+      }
+
+      .sortable-table th.sort-desc::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Diffusion Models for Image Processing</h1>
+    <h2>Image Super-Resolution</h2>
+    <table class="sortable-table">
+      <thead>
+        <tr>
+          <th>Models</th>
+          <th>Paper</th>
+          <th>First Author</th>
+          <th>Venue</th>
+          <th>Repository</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SR3</td>
+          <td>
+            <a href="https://ieeexplore.ieee.org/document/9887996x">
+              Image super-resolution via iterative refinement
+            </a>
+          </td>
+          <td>Chitwan Saharia</td>
+          <td data-year="2022">TPAMI2022</td>
+          <td>
+            <a
+              href="https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement"
+            >
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>SRDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2104.14951">
+              SRDiff: Single Image Super-Resolution with Diffusion Probabilistic
+              Models
+            </a>
+          </td>
+          <td>Haoying Li</td>
+          <td data-year="2021-04-30">Neurocomputing 2022</td>
+          <td>
+            <a href="https://github.com/LeiaLi/SRDiff"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>SDE-SR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2209.12064">
+              Face super-resolution using stochastic differential equations
+            </a>
+          </td>
+          <td>Marcelo dos Santos</td>
+          <td data-year="2022-09-24">SIBGRAPI 2022</td>
+          <td>
+            <a href="https://github.com/marcelowds/sr-sde"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>IDM</td>
+          <td>
+            <a
+              href="https://openaccess.thecvf.com/content/CVPR2023/papers/Gao_Implicit_Diffusion_Models_for_Continuous_Super-Resolution_CVPR_2023_paper.pdf"
+            >
+              Implicit diffusion models for continuous super-resolution
+            </a>
+          </td>
+          <td>Sicheng Gao</td>
+          <td data-year="2023">CVPR2023</td>
+          <td>
+            <a href="https://github.com/Ree1s/IDM"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>PromptSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2311.14282">
+              Image Super-Resolution with Text Prompt Diffusion
+            </a>
+          </td>
+          <td>Zheng Chen</td>
+          <td data-year="2023-11-24">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/zhengchen1999/PromptSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>DiffIR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2303.09472">
+              DiffIR: Efficient diffusion model for image restoration
+            </a>
+          </td>
+          <td>Bin Xia</td>
+          <td data-year="2023-03-16">ICCV 2023</td>
+          <td>
+            <a href="https://github.com/Zj-BinXia/DiffIR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>CDM</td>
+          <td>
+            <a href="https://arxiv.org/abs/2106.15282">
+              Cascaded Diffusion Models for High Fidelity Image Generation
+            </a>
+          </td>
+          <td>Jonathan Ho</td>
+          <td data-year="2021-05-30">J.Mach.Learn.Res 2022</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>StableSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2305.07015">
+              Exploiting diffusion prior for real-world image super-resolution
+            </a>
+          </td>
+          <td>Jianyi Wang</td>
+          <td data-year="2023-05-11">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/IceClear/StableSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>ResShift</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2307.12348.pdf">
+              ResShift: Efficient Diffusion Model for Image Super-resolution by
+              Residual Shifting
+            </a>
+          </td>
+          <td>Zongsheng Yue</td>
+          <td data-year="2023">NeurIPS 2023</td>
+          <td>
+            <a href="https://github.com/zsyOAOA/ResShift"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>DFOSD</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2410.04224">
+              Distillation-Free One-Step Diffusion for Real-World Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Jianze Li</td>
+          <td data-year="2024-10-05">Preprint (2024)</td>
+          <td>
+            <a href="https://github.com/JianzeLi-114/DFOSD"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>ECDP</td>
+          <td>
+            <a href="https://arxiv.org/abs/2404.10688">
+              Efficient Conditional Diffusion Model with Probability Flow
+              Sampling for Image Super-resolution
+            </a>
+          </td>
+          <td>Yutao Yuan</td>
+          <td data-year="2024-04-16">AAAI 2024</td>
+          <td>
+            <a href="https://github.com/Yuan-Yutao/ECDP"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>ClearSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2410.14279">
+              ClearSR: Latent Low-Resolution Image Embeddings Help
+              Diffusion-Based Real-World Super Resolution Models See Clearer
+            </a>
+          </td>
+          <td>Yuhao Wan</td>
+          <td data-year="2024-10-18">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>SinSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2311.14760">
+              SinSR: Diffusion-Based Image Super-Resolution in a Single Step
+            </a>
+          </td>
+          <td>Yufei Wang</td>
+          <td data-year="2023-11-23">CVPR 2024</td>
+          <td>
+            <a href="https://github.com/wyf0912/SinSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>TextDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2308.06743">
+              TextDiff: Mask-Guided Residual Diffusion Models for Scene Text
+              Image Super-Resolution
+            </a>
+          </td>
+          <td>Baolin Liu</td>
+          <td data-year="2023-08-13">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/Lenubolim/TextDiff"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>PASD</td>
+          <td>
+            <a href="https://arxiv.org/abs/2308.14469">
+              Pixel-Aware Stable Diffusion for Realistic Image Super-resolution
+              and Personalized Stylization
+            </a>
+          </td>
+          <td>Tao Yang</td>
+          <td data-year="2023-08-28">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/yangxy/pasd"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>CCSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2401.00877">
+              Improving the Stability of Diffusion Models for Content Consistent
+              Super-Resolution
+            </a>
+          </td>
+          <td>Lingchen Sun</td>
+          <td data-year="2023-12-30">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/csslc/CCSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>EDiffSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2310.19288">
+              EDiffSR: An Efficient Diffusion Probabilistic Model for Remote
+              Sensing Image Super-Resolution
+            </a>
+          </td>
+          <td>Yi Xiao</td>
+          <td data-year="2023-10-30">IEEE TGRS</td>
+          <td>
+            <a href="https://github.com/XY-boy/EDiffSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>SeeSR</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2311.16518">
+              SeeSR: Towards Semantics-Aware Real-World Image Super-Resolution
+            </a>
+          </td>
+          <td>Rongyuan Wu</td>
+          <td data-year="2023-11-27">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/cswry/SeeSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>CoSeR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2311.16512">
+              CoSeR: Bridging Image and Language for Cognitive Super-Resolution
+            </a>
+          </td>
+          <td>Haoze Sun</td>
+          <td data-year="2023-11-27">CVPR 2024</td>
+          <td>
+            <a href="https://github.com/VINHYU/CoSeR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>MegaSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2503.08096">
+              MegaSR: Mining Customized Semantics and Expressive Guidance for
+              Image Super-Resolution
+            </a>
+          </td>
+          <td>Xinrui Li</td>
+          <td data-year="2025-03-11">Preprint (2025)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>FaithDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2411.18824">
+              FaithDiff: Unleashing Diffusion Priors for Faithful Image
+              Super-resolution
+            </a>
+          </td>
+          <td>Junyang Chen</td>
+          <td data-year="2024-11-27">CVPR 2025</td>
+          <td>
+            <a href="https://github.com/JyChen9811/FaithDiff"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>HoliSDiP</td>
+          <td>
+            <a href="https://arxiv.org/abs/2411.18662">
+              HoliSDiP: Image Super-Resolution via Holistic Semantics and
+              Diffusion Prior
+            </a>
+          </td>
+          <td>Li-Yuan Tsao</td>
+          <td data-year="2024-11-27">Preprint (2025)</td>
+          <td>
+            <a href="https://github.com/liyuantsao/HoliSDiP"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>BI-DiffSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2406.05723">
+              Binarized Diffusion Model for Image Super-Resolution
+            </a>
+          </td>
+          <td>Zheng Chen</td>
+          <td data-year="2024-06-09">NeurIPS 2024</td>
+          <td>
+            <a href="https://github.com/zhengchen1999/BI-DiffSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>DoSSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2409.17778">
+              Taming Diffusion Prior for Image Super-Resolution with Domain
+              Shift SDEs
+            </a>
+          </td>
+          <td>Qinpeng Cui</td>
+          <td data-year="2024-09-26">NeurIPS 2024</td>
+          <td>
+            <a href="https://github.com/QinpengCui/DoSSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>DaLPSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2406.16477">
+              DaLPSR: Leverage Degradation-Aligned Language Prompt for
+              Real-World Image Super-Resolution
+            </a>
+          </td>
+          <td>Aiwen Jiang</td>
+          <td data-year="2024-06-24">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>FDDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2405.10014">
+              Frequency-Domain Refinement with Multiscale Diffusion for Super
+              Resolution
+            </a>
+          </td>
+          <td>Xingjian Wang</td>
+          <td data-year="2024-05-16">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>PartDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2307.11926">
+              PartDiff: Image Super-resolution with Partial Diffusion Models
+            </a>
+          </td>
+          <td>Kai Zhao</td>
+          <td data-year="2023-07-21">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>DeeDSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2404.00661">
+              DeeDSR: Towards Real-World Image Super-Resolution via
+              Degradation-Aware Stable Diffusion
+            </a>
+          </td>
+          <td>Chunyang Bi</td>
+          <td data-year="2024-03-31">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>TDDSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2410.07663">
+              TDDSR: SINGLE-STEP DIFFUSION WITH TWO DISCRIMINATORS FOR SUPER
+              RESOLUTION
+            </a>
+          </td>
+          <td>Sohwi Kim</td>
+          <td data-year="2024-10-10">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>DiT-SR</td>
+          <td>
+            <a href="https://arxiv.org/html/2409.19589">
+              Effective Diffusion Transformer Architecture for Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Kun Cheng</td>
+          <td data-year="2024-09-29">Preprint (2024)</td>
+          <td>
+            <a href="https://github.com/kunncheng/dit-sr"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>SR3+</td>
+          <td>
+            <a href="https://arxiv.org/abs/2302.07864">
+              Denoising diffusion probabilistic models for robust image
+              super-resolution in the wild
+            </a>
+          </td>
+          <td>Hshmat Sahak</td>
+          <td data-year="2023-02-15">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>DKP</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2404.15620v2">
+              A Dynamic Kernel Prior Model for Unsupervised Blind Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Zhixiong Yang</td>
+          <td data-year="2024-04-24">CVPR 2024</td>
+          <td>
+            <a href="https://github.com/XYLGroup/DKP"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Diwa</td>
+          <td>
+            <a href="https://arxiv.org/abs/2304.01994">
+              Waving Goodbye to Low-Res: A Diffusion-Wavelet Approach for Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Brian Moser</td>
+          <td data-year="2023-04-04">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/Brian-Moser/diwa"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>YODA</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2308.07977v1.pdf">
+              YODA: You Only Diffuse Areas. An Area-Masked Diffusion Approach
+              For Image Super-Resolution
+            </a>
+          </td>
+          <td>Brian B. Moser</td>
+          <td data-year="2023-08-15">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>CDPMSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2302.12831">
+              CDPMSR: Conditional Diffusion Probabilistic Models for Single
+              Image Super-Resolution
+            </a>
+          </td>
+          <td>Axi Niu</td>
+          <td data-year="2023-02-14">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ACDPMSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2307.00781">
+              ACDMSR: Accelerated Conditional Diffusion Models for Single Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Axi Niu</td>
+          <td data-year="2023-07-03">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ResDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2303.08714">
+              ResDiff: Combining cnn and diffusion model for image
+              superresolution
+            </a>
+          </td>
+          <td>Shuyao Shang</td>
+          <td data-year="2023-03-15">Preprint (2023)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OSEDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2406.08177">
+              One-Step Effective Diffusion Network for Real-World Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Rongyuan Wu</td>
+          <td data-year="2024-06-12">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>DiffTSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2312.08886">
+              Diffusion-based Blind Text Image Super-Resolution
+            </a>
+          </td>
+          <td>Yuzhe Zhang</td>
+          <td data-year="2023-12-13">CVPR 2024</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>SAM-DiffSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2402.17133">
+              SAM-DiffSR: Structure-Modulated Diffusion Model for Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Chengcheng Wang</td>
+          <td data-year="2024-02-27">Preprint (2024)</td>
+          <td>
+            <a href="https://github.com/lose4578/SAM-DiffSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>BlindDiff</td>
+          <td>
+            <a href="https://arxiv.org/abs/2403.10211">
+              BlindDiff: Empowering Degradation Modelling in Diffusion Models
+              for Blind Image Super-Resolution
+            </a>
+          </td>
+          <td>Feng Li</td>
+          <td data-year="2024-03-15">Preprint (2024)</td>
+          <td>
+            <a href="https://github.com/lifengcs/BlindDiff"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>XPSR</td>
+          <td>
+            <a href="https://arxiv.org/abs/2403.05049">
+              XPSR: Cross-modal Priors for Diffusion-based Image
+              Super-Resolution
+            </a>
+          </td>
+          <td>Yunpeng Qu</td>
+          <td data-year="2024-03-08">Preprint (2024)</td>
+          <td>
+            <a href="https://github.com/qyp2000/XPSR"> </a>
+          </td>
+        </tr>
+        <tr>
+          <td>--</td>
+          <td>
+            <a href="https://arxiv.org/abs/2403.01124">
+              Text-guided Explorable Image Super-resolution
+            </a>
+          </td>
+          <td>Kanchana Vaishnavi Gandikota</td>
+          <td data-year="2024-03-02">Preprint (2024)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>--</td>
+          <td>
+            <a href="https://arxiv.org/pdf/2310.12004v2.pdf">
+              Image Super-resolution Via Latent Diffusion: A Sampling-space
+              Mixture Of Experts And Frequency-augmented Decoder Approach
+            </a>
+          </td>
+          <td>Feng Luo</td>
+          <td data-year="2023-10-18">Preprint (2023)</td>
+          <td>
+            <a href="https://github.com/tencent-ailab/Frequency_Aug_VAE_MoESR">
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>--</td>
+          <td>
+            <a href="https://arxiv.org/abs/2305.15357">
+              Solving Diffusion ODEs with Optimal Boundary Conditions for Better
+              Image Super-Resolution
+            </a>
+          </td>
+          <td>Yiyang Ma</td>
+          <td data-year="2023-05-24">Preprint (2023)</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      function createGithubBadge(repoUrl) {
+        if (!repoUrl) return "";
+        const repoPath = repoUrl.replace(/https?:\/\/github.com\//, "");
+        const badgeUrl = `https://img.shields.io/github/stars/${repoPath}?style=for-the-badge&logoColor=%2320232a&labelColor=%2320232a&color=%23555555`;
+        return `<a href="${repoUrl}"><img src="${badgeUrl}" alt="GitHub Repo stars"></a>`;
+      }
+
+      function makeTableSortable(table) {
+        const headers = table.querySelectorAll("th");
+        let currentSort = {
+          columnIndex: -1,
+          isAscending: true,
+        };
+
+        headers.forEach((header, columnIndex) => {
+          header.addEventListener("click", () => {
+            const tableBody = table.querySelector("tbody");
+            const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+            let isAscending = true;
+            if (currentSort.columnIndex === columnIndex) {
+              isAscending = !currentSort.isAscending;
+            }
+
+            const direction = isAscending ? 1 : -1;
+
+            const sortedRows = rows.sort((a, b) => {
+              let aText = a
+                .querySelector(`td:nth-child(${columnIndex + 1})`)
+                .textContent.trim()
+                .toLowerCase();
+              let bText = b
+                .querySelector(`td:nth-child(${columnIndex + 1})`)
+                .textContent.trim()
+                .toLowerCase();
+
+              // If the column is the 'Venue' column, sort by data-year attribute
+              if (header.textContent.trim().toLowerCase() === "venue") {
+                aText = a.querySelector(`td:nth-child(${columnIndex + 1})`)
+                  .dataset.year;
+                bText = b.querySelector(`td:nth-child(${columnIndex + 1})`)
+                  .dataset.year;
+              }
+
+              if (aText < bText) return -1 * direction;
+              if (aText > bText) return 1 * direction;
+              return 0;
+            });
+
+            headers.forEach((h) => h.classList.remove("sort-asc", "sort-desc"));
+            header.classList.toggle("sort-asc", isAscending);
+            header.classList.toggle("sort-desc", !isAscending);
+            currentSort.columnIndex = columnIndex;
+            currentSort.isAscending = isAscending;
+            tableBody.innerHTML = "";
+            sortedRows.forEach((row) => tableBody.appendChild(row));
+          });
+        });
+      }
+
+      function updateVenueDisplay(table) {
+        const venueColumnIndex = 3; // 'Venue' is the 4th column (0-indexed)
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+          const venueCell = row.querySelector(`td:nth-child(${venueColumnIndex + 1})`);
+          if (venueCell) {
+            const fullDate = venueCell.dataset.year; // Assuming YYYY-MM-DD is in data-year
+            const originalText = venueCell.textContent.trim();
+
+            // Check if data-year contains a full date (YYYY-MM-DD)
+            if (fullDate && /^\d{4}-\d{2}-\d{2}$/.test(fullDate)) {
+              // Avoid prepending if the date is already there
+              if (!originalText.startsWith(fullDate)) {
+                venueCell.textContent = `${fullDate} / ${originalText}`;
+              }
+            }
+          }
+        });
+      }
+
+      document.querySelectorAll(".sortable-table").forEach((table) => {
+        makeTableSortable(table);
+        // Dynamically create badges after table is sortable
+        table.querySelectorAll('tbody tr').forEach(row => {
+          const repoCell = row.querySelector('td:last-child');
+          if (repoCell) {
+            const repoLinkElement = repoCell.querySelector('a');
+            let repoUrl = '';
+            if (repoLinkElement) {
+              repoUrl = repoLinkElement.href;
+              if (repoLinkElement.innerHTML.trim() === '' || repoLinkElement.innerHTML.includes('img.shields.io')) {
+                   repoCell.innerHTML = createGithubBadge(repoUrl); // Overwrite if only link or old badge
+              } else {
+                // If there's other content, append badge if not already there by function
+                if (!repoCell.querySelector('img[src*="img.shields.io"]')) {
+                  repoCell.innerHTML += createGithubBadge(repoUrl);
+                }
+              }
+            } else if (repoCell.textContent.trim().startsWith('https://github.com/')) {
+              repoUrl = repoCell.textContent.trim();
+              repoCell.innerHTML = createGithubBadge(repoUrl);
+            }
+          }
+        });
+        // Update venue display after badges and sorting are set up
+        updateVenueDisplay(table);
+      });
+    </script>
+  </body>
+</html>
