@@ -7,7 +7,7 @@ async function fetchData() {
     return data;
 }
 
-function populateTable(tableElement, data) { // Takes the specific table element
+function populateTable(tableElement, data) {
     const tableBody = tableElement.querySelector('tbody');
     if (!tableBody) {
         console.error("Could not find tbody in table:", tableElement);
@@ -17,7 +17,7 @@ function populateTable(tableElement, data) { // Takes the specific table element
         tableElement.parentNode.insertBefore(errorMsg, tableElement);
         return;
     }
-    tableBody.innerHTML = ''; // Clear existing rows
+    tableBody.innerHTML = ''; 
 
     data.forEach(item => {
         const row = tableBody.insertRow();
@@ -48,9 +48,6 @@ function populateTable(tableElement, data) { // Takes the specific table element
         const repoCell = row.insertCell();
         if (item.repository) {
             repoCell.innerHTML = createGithubBadge(item.repository);
-        } else {
-            // repoCell.textContent = ''; // Or leave it empty
-        }
     });
 }
 
@@ -155,35 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     tables.forEach(async table => {
-        try {
-            const data = await fetchData();
-            populateTable(table, data);
-            makeTableSortable(table);
-            updateVenueDisplay(table);
-        } catch (error) {
-            console.error("Error initializing table:", error);
-            const body = document.querySelector('body');
-            const errorDiv = document.createElement('div');
-            errorDiv.innerHTML = `
-                <p style="color: red; font-weight: bold;">Error loading table data!</p>
-                <p>Details: ${error.message}</p>
-                <p>This can happen if you open the <code>index.html</code> file directly in your browser (using a <code>file:///</code> URL).</p>
-                <p>Browsers often restrict loading local files (like <code>data.json</code>) for security reasons in this scenario.</p>
-                <p><strong>To fix this, please try one of the following:</strong></p>
-                <ul>
-                    <li><strong>Use a simple local web server.</strong> Many code editors (like VS Code with the "Live Server" extension) can do this easily.</li>
-                    <li>If you are using Python, you can run <code>python -m http.server</code> in this directory and open <code>http://localhost:8000</code>.</li>
-                </ul>
-            `;
-            errorDiv.style.padding = '10px';
-            errorDiv.style.border = '2px solid red';
-            errorDiv.style.backgroundColor = '#ffe0e0';
-            errorDiv.style.margin = '10px';
-            if (table.parentNode) {
-                table.parentNode.insertBefore(errorDiv, table);
-            } else {
-                body.insertBefore(errorDiv, body.firstChild);
-            }
-        }
+        const data = await fetchData();
+        populateTable(table, data);
+        makeTableSortable(table);
+        updateVenueDisplay(table);
     });
 });
