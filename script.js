@@ -48,6 +48,7 @@ function populateTable(tableElement, data) {
         const repoCell = row.insertCell();
         if (item.repository) {
             repoCell.innerHTML = createGithubBadge(item.repository);
+        }
     });
 }
 
